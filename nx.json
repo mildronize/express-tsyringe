@@ -26,12 +26,8 @@
       }
     ]
   },
-  "projects": {
-    "api": {
-      "tags": []
-    },
-    "router": {
-      "tags": []
-    }
-  }
+  "cli": {
+    "defaultCollection": "@nrwl/express"
+  },
+  "defaultProject": "api"
 }
