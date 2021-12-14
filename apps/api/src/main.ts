@@ -4,11 +4,12 @@
  */
 
 import * as express from 'express';
+import { router } from '@mildjs/router';
 
 const app = express();
 
 app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });
+  res.send({ message: 'Welcome to api! efef ' + router() });
 });
 
 const port = process.env.port || 3333;

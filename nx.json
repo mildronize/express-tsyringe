@@ -1,5 +1,5 @@
 {
-  "npmScope": "nx-express",
+  "npmScope": "mildjs",
   "affected": {
     "defaultBase": "main"
   },
@@ -28,6 +28,9 @@
   },
   "projects": {
     "api": {
+      "tags": []
+    },
+    "router": {
       "tags": []
     }
   }
