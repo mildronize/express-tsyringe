@@ -1,22 +1,11 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { ModuleMetadata } from '../interfaces/module-metadata.interface';
 import { getMetadataArgsStore } from '../decorators/metadata';
 import { RouteMetadataArgs } from '../interfaces/metadata-args-store';
-import { DynamicModule, MiddlewareMetadataArgs, RequestMethod } from '../interfaces';
+import { MiddlewareMetadataArgs, RequestMethod } from '../interfaces';
 import { combineMiddlewares } from '../utils';
 import { CombineRoute, combineRouteWithMiddleware } from './combine-route-with-middleware';
 import { Type } from '../interfaces/type.interface';
 import { container } from 'tsyringe';
-// import { ReflectiveInjector, InjectionToken, Injectable, Type, Provider } from 'injection-js';
-// import {
-//   ReflectiveInjector,
-//   Injectable,
-//   Constructor,
-//   isConstructor,
-//   Provider,
-//   getClassName,
-//   isPromise,
-// } from '@mildjs/di';
 
 /**
  * `ExpressAppOption` is for setting up the **Root ModuleMetadata**,

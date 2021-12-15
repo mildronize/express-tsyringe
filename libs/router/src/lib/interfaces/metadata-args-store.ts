@@ -1,14 +1,15 @@
+import { AnyFunction } from "../types";
 // This will use to call app.get / app.post ..... of express
 export type RequestMethod = 'get' | 'post' | 'delete' | 'options' | 'put';
 
 export interface MiddlewareMetadataArgs {
-  target: Function;
+  target: AnyFunction;
   methodName: string;
-  middleware: Function;
+  middleware: AnyFunction;
 }
 
 export interface RouteMetadataArgs {
-  target: Function;
+  target: AnyFunction;
 
   // Path to our route
   path: string;

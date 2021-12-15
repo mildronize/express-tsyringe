@@ -1,11 +1,11 @@
 import { injectable } from 'tsyringe';
-import constructor from "../types/constructor";
+import { Constructor } from "../types";
 import { getMetadataArgsStore } from '../decorators/metadata';
 
-type ClassDecorator<T> = (target: constructor<T>) => void;
+type ClassDecorator<T> = (target: Constructor<T>) => void;
 
 function controller<T>(prefix?: string): ClassDecorator<T> {
-  return function(target: constructor<T>) {
+  return function (target: Constructor<T>) {
     /**
      * Add marker @injectable to @controller decorator, for resolving dependencies
      */

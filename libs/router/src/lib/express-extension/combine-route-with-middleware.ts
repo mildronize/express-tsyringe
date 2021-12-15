@@ -1,9 +1,8 @@
-import { getMetadataArgsStore } from '../decorators/metadata';
 import { RouteMetadataArgs } from '../interfaces/metadata-args-store';
 import { MiddlewareMetadataArgs, RequestMethod } from '../interfaces';
-
+import { AnyFunction } from '../types';
 export interface CombineRoute {
-  target: Function;
+  target: AnyFunction;
   path: string;
   methodName: string;
   requestMethod?: RequestMethod;
@@ -44,8 +43,6 @@ export function combineRouteWithMiddleware(
     }
   });
 
-  // console.log('classRoute');
-  // console.log(classRoute);
 
   // apply middleware of the class controller to all methods
   exportedRoutes.forEach((route) => {

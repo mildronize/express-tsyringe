@@ -1,3 +1,3 @@
 export {default as controller} from "./controller";
-export * from './http-methods';
+export * from './httpMethods';
 export * from './use';

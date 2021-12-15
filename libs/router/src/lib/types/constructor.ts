@@ -1,6 +1,6 @@
 /** Constructor type */
-type constructor<T> = {
+type Constructor<T> = {
     new(...args: any[]): T;
 };
 
-export default constructor;
+export default Constructor;
