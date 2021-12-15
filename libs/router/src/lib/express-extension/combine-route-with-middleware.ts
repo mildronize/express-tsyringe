@@ -2,7 +2,7 @@ import { RouteMetadataArgs } from '../interfaces/metadata-args-store';
 import { MiddlewareMetadataArgs, RequestMethod } from '../interfaces';
 import { AnyFunction } from '../types';
 export interface CombineRoute {
-  target: AnyFunction;
+  target: Function;
   path: string;
   methodName: string;
   requestMethod?: RequestMethod;

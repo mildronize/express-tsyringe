@@ -3,13 +3,13 @@ import { AnyFunction } from "../types";
 export type RequestMethod = 'get' | 'post' | 'delete' | 'options' | 'put';
 
 export interface MiddlewareMetadataArgs {
-  target: AnyFunction;
+  target: Function;
   methodName: string;
-  middleware: AnyFunction;
+  middleware: Function;
 }
 
 export interface RouteMetadataArgs {
-  target: AnyFunction;
+  target: Function;
 
   // Path to our route
   path: string;

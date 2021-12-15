@@ -1,16 +1,27 @@
 import { Request, Response, NextFunction } from 'express';
-import { controller, httpGet } from '@mildjs/router';
+import { controller, ControllerBase, httpGet } from '@mildjs/router';
 import BookService from './BookService';
 
 @controller('books')
-export default class BookController {
+export default class BookController extends ControllerBase {
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService) {
+    super();
+   }
 
   @httpGet()
-  public async getBooks(req: Request, res: Response, next: NextFunction) {
-      const data = this.bookService.getBooks();
-      res.status(200).json( data );
+  public async getBooks(req: Request) {
+      // const data = this.bookService.getBooks();
+      // res.json(data);
+      return this.bookService.getBooks();
   }
+
+  @httpGet('error')
+  public async getError(req: Request) {
+      // return this.bookService.getBooks();
+      throw Error('Errr จ้าาาา')
+      //
+  }
+
 
 }

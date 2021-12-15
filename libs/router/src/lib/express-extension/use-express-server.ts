@@ -27,7 +27,7 @@ export async function useExpressServer(app: express.Application, option?: Expres
      * Then, get controller instance
      */
 
-    const controllerInstance =  container.resolve(controller) as typeof controller;
+    const controllerInstance = container.resolve(controller) as typeof controller;
 
     const combinedRoutes = combineRouteWithMiddleware(controller, store.routes, store.middlewares);
     addRouterToExpress(app, combinedRoutes, controllerInstance);
@@ -68,15 +68,20 @@ export const combineRouterPath = (prefix: string, path: string) => {
 };
 
 const callInstance = (instance: any, route: RouteMetadataArgs) =>
-  asyncHelper(async (req: Request, res: Response, next: NextFunction) => {
-    await instance[route.methodName](req, res, next);
-  });
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const responseData = await instance[route.methodName](req, res, next);
+      res.send(responseData);
+    } catch (error) {
+      res.send({ type: "error", msg: error.message});
+    }
+  };
 
 export const getPrefix = (routes: any[]) => {
   for (const i in routes) if (routes[i].isClass) return routes[i].path;
   return '';
 };
 
-export const asyncHelper = (fn: any) => (req: Request, res: Response, next: NextFunction) => {
-  fn(req, res, next).catch(next);
-};
+// export const asyncHelper = (fn: any) => (req: Request, res: Response, next: NextFunction) => {
+//   fn(req, res, next).catch(next);
+// };
