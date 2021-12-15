@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import { autoInjectable, injectable } from 'tsyringe';
-import { controller } from './decorators';
+import { controller } from '@mildjs/router';
 import BookService from './BookService';
 
 @controller()
