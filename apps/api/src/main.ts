@@ -8,6 +8,7 @@ import { router, useExpressServer } from '@mildjs/router';
 import { container } from 'tsyringe';
 
 import BookController from './app/BookController';
+import UserController from './app/UserController';
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.get('/api', (req, res) => {
 // app.use('/books', container.resolve(BookController).routes());
 
 useExpressServer(app, {
-  controllers: [BookController]
+  controllers: [BookController, UserController]
 })
 
 const port = process.env.port || 3333;
