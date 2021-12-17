@@ -12,10 +12,9 @@ import UserController from './app/UserController';
 
 const app = express();
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.send({ message: 'Welcome to api! efef ' + router() });
 });
-// app.use('/books', container.resolve(BookController).routes());
 
 useExpressServer(app, {
   controllers: [BookController, UserController]
@@ -23,6 +22,6 @@ useExpressServer(app, {
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  console.log(`Listening at http://localhost:${port}/`);
 });
 server.on('error', console.error);

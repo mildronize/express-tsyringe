@@ -1,4 +1,5 @@
-https://github.com/yanpitangui/dotnet-api-boilerplate
+dotnet clean arch
+- https://github.com/yanpitangui/dotnet-api-boilerplate
 
 
 Example 

@@ -29,5 +29,5 @@
   "cli": {
     "defaultCollection": "@nrwl/express"
   },
-  "defaultProject": "api"
+  "defaultProject": "webapp-boilerplate"
 }
